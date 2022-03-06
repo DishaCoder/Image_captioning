@@ -1,0 +1,5 @@
+resources/
+resources/descriptions.txt
+        resources/glove.6B.200d.txt
+        resources/my_model.h5
+        resources/my_model_new.h5

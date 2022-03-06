@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Selfie AI Project</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/album.css" rel="stylesheet">
+  </head>
+
+ <body>
+
+    <header>
+      <div class="collapse bg-dark .navbar-fixed-top" id="navbarHeader" >
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">
+                  For the given images, the model should be able to classify the image as either an approved or denied selfie.
+              </p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                <li><a href="#" class="text-white">Email me</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <strong>Image Caption Generator Project</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+    <div >
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Upload your Image</h1>
+          <p class="lead text-muted">Please upload your image files to Generate Caption</p>
+
+            <form action = "/uploader" method = "POST" enctype = "multipart/form-data">
+                <input type="file" id="files" name="file" multiple="multiple" />
+                <input type="submit" value="Submit" class="btn btn-lg btn-primary" />
+            </form>
+        </div>
+      </section>
+
+        {% if testm is defined %}
+            <section class=" text-center">
+                <div class="container">
+                    <h1 class="jumbotron-heading">Predicted Result</h1>
+{#                    <p class="lead text-muted">Please upload your image files to Generate Caption</p>#}
+                    <img src="{{ file_name }}" width="340">
+                    <br><br>
+                    <h3 class="text-lg-center"><b>Predicted Caption:</b>{{ testm }}</h3>
+{#                    <p>Confidence:{{ confidence }}</p>#}
+                </div>
+            </section>
+        {% endif %}
+    </div>
+    </main>
+
+  <footer class="text-center text-lg-start" style="background-color: #343a40!important; margin-top: 250px;padding-top: 1rem;padding-bottom: 1rem">
+    <!-- Copyright -->
+    <div class="text-center text-white p-2" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2021 Copyright:
+      <a class="text-white" href="">Image Caption Generator Project</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+{#    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>#}
+    <script src="/static/js/popper.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>
